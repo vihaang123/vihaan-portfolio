@@ -796,7 +796,9 @@ export interface QuoteItem {
 export const quotes = {
   label: "Quotes",
   heading: "Words I keep close",
-  items: [] as QuoteItem[],
+  items: [
+    { text: "Make something people want.", author: "Paul Graham, Y Combinator" },
+  ] as QuoteItem[],
 };
 
 /* ----------------------------------------------------------------------------
