@@ -1,5 +1,4 @@
 import { About } from "@/components/About";
-import { Beyond } from "@/components/Beyond";
 import { Capabilities } from "@/components/Capabilities";
 import { Contact } from "@/components/Contact";
 import { Currently } from "@/components/Currently";
@@ -18,7 +17,6 @@ export default function Home() {
       <Experience />
       <Capabilities />
       <Currently />
-      <Beyond />
       <Contact />
     </>
   );

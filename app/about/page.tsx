@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { About } from "@/components/About";
-import { AboutStory, Interests, WhatIDo } from "@/components/AboutStory";
+import { AboutStory, Interests, Values, WhatIDo } from "@/components/AboutStory";
 import { Beyond } from "@/components/Beyond";
 import { Capabilities } from "@/components/Capabilities";
 import { Contact } from "@/components/Contact";
@@ -19,11 +19,12 @@ export default function AboutPage() {
     <div className="flow">
       <About headingAs="h1" first />
       <AboutStory />
+      <Values />
       <WhatIDo />
       <Interests />
+      <Beyond />
       <Capabilities />
       <Currently />
-      <Beyond />
       <Inspirations />
       <Quotes />
       <Contact />

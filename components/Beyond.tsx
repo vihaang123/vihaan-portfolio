@@ -20,9 +20,9 @@ export function Beyond() {
 
         <ul className="grid-12 gap-y-10">
           {beyond.items.map((item, i) => (
-            <li key={item.title} className="col-span-full md:col-span-3">
-              <Reveal delay={i * 0.08} className="border-t border-ink pt-4">
-                <h3 className="text-h3 font-semibold">{item.title}</h3>
+            <li key={item.title} className="col-span-full md:col-span-6 lg:col-span-4">
+              <Reveal delay={(i % 3) * 0.08} className="border-t border-ink pt-4">
+                <h3 className="font-display text-h3 font-bold">{item.title}</h3>
                 <p className="text-body mt-3 text-muted">{item.note}</p>
               </Reveal>
             </li>

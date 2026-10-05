@@ -51,7 +51,9 @@ Empty values are hidden on the public page, so the site is safe to deploy as is.
 - [ ] Optional: add `RESEND_API_KEY` (and `CONTACT_FROM_EMAIL`) in Vercel so contact messages arrive in your inbox; without them the form opens the visitor's email app
 - [ ] Confirm `experience.education.institution` (taken from your project slides: NMIMS, MPSTME)
 - [ ] `crime-forecasting` project `href`: link to the published paper (shows a "Read the paper" link)
-- [ ] About page: add your hobbies (`beyond.items`), people you look up to (`inspirations.items`) and quotes (`quotes.items`). Each section is hidden until it has entries, so nothing is invented
+- [x] About page: Outside work (hobbies) and "What building has taught me" added from your own words
+- [ ] About page: people you look up to (`inspirations.items`) and quotes (`quotes.items`). Each section is hidden until it has entries, so nothing is invented
+- [ ] Skills: LinkedIn's skills page needs a sign-in, so the Capabilities list is still the earlier one
 - [ ] Other project links, roles and screenshots (optional, when you have them). Only Tekkloom Tools has a link so far
 
 ## Packaging and deployment

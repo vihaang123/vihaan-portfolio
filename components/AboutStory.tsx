@@ -66,6 +66,30 @@ export function WhatIDo() {
   );
 }
 
+/** How the path led here, and the three lessons Tekkloom taught. */
+export function Values() {
+  const { values } = aboutMore;
+  return (
+    <section id="values" aria-labelledby="values-heading" className="section">
+      <div className="container-x">
+        <SectionHead label={values.label} title={values.heading} id="values-heading">
+          <p className="text-lead mt-6 max-w-[44ch] text-muted">{values.intro}</p>
+        </SectionHead>
+        <ul className="grid-12 gap-y-10">
+          {values.items.map((item, i) => (
+            <li key={item.title} className="col-span-full md:col-span-4">
+              <Reveal delay={i * 0.08} className="h-full border-t border-ink pt-4">
+                <h3 className="font-display text-h3 font-bold">{item.title}</h3>
+                <p className="text-body mt-3 max-w-[34ch] text-muted">{item.note}</p>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 /** What keeps pulling my attention: big type, one line each. */
 export function Interests() {
   const { interests } = aboutMore;

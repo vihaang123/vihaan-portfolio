@@ -8,7 +8,7 @@
  *    1. links.email, links.linkedin, links.github, links.x (all set)
  *    2. experience.education.period
  *    3. project hrefs, roles and screenshots (see the Project type below)
- *    4. beyond.items (the section stays hidden until you add real interests)
+ *    4. beyond.items (the "Outside work" section on the About page; hidden while empty)
  * ============================================================================
  */
 
@@ -161,6 +161,17 @@ export const aboutMore = {
         href: "/projects",
         linkLabel: "See the projects",
       },
+    ],
+  },
+  values: {
+    label: "How I got here",
+    heading: "What building has taught me",
+    intro:
+      "I’ve always been drawn to building things and working out how they work. That curiosity led me into software, and eventually into startups. Building Tekkloom shaped how I work and what I value.",
+    items: [
+      { title: "Execution beats ideas", note: "Ideas are cheap. Shipping them is the hard part, and the part that counts." },
+      { title: "Customers give the best feedback", note: "Nothing teaches you faster than people actually using what you made." },
+      { title: "Stay resilient through uncertainty", note: "Progress comes from carrying on when the path isn’t clear." },
     ],
   },
   interests: {
@@ -746,10 +757,18 @@ export interface BeyondItem {
 
 export const beyond = {
   index: "06",
-  label: "Hobbies",
-  heading: "Beyond the work",
-  intro: "The things I do when I’m not building.",
-  items: [] as BeyondItem[],
+  label: "Free time",
+  heading: "Outside work",
+  intro:
+    "I like reading about startups, AI and technology, but I also like getting away from my screen. I’m naturally curious, so I’m usually building something or diving into a topic that has caught my interest.",
+  items: [
+    { title: "Reading", note: "Mostly about startups, AI and technology." },
+    { title: "Working out", note: "A good way to get away from the screen." },
+    { title: "New cafés", note: "Always happy to explore one I haven’t been to." },
+    { title: "Football", note: "Watching it, and talking about it." },
+    { title: "Friends and family", note: "Time with the people I care about." },
+    { title: "Side projects", note: "Building small things and learning new tech just for fun." },
+  ] as BeyondItem[],
 };
 
 export interface InspirationItem {

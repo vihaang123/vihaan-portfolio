@@ -45,7 +45,7 @@ Optional: once you have a custom domain, set `NEXT_PUBLIC_SITE_URL` (for example
 | --- | --- |
 | `/` | Hero (kinetic headline and a drawn career path), a short selection of work, About, Experience, Capabilities, Currently, contact call to action |
 | `/projects` | All 10 projects with filter chips (Research, Products, Data & ML), each opening its case study. `/projects#project-<id>` scrolls to a project |
-| `/about` | About, a longer story, what I do, interests, Capabilities, Currently, and (once filled in) hobbies, people you look up to and quotes |
+| `/about` | About, a longer story, what building has taught me, what I do, interests, outside work (hobbies), Capabilities, Currently, and (once filled in) people you look up to and quotes |
 | `/experience` | Experience grouped as Startups, Internships and Research, plus education |
 | `/contact` | Message form, email, LinkedIn, GitHub |
 
@@ -90,7 +90,8 @@ Everything on the page lives in **`lib/content.ts`**. Anything you leave empty i
 | Nav items | `navItems` (each links to a page) |
 | Scrolling words under the hero | `marquee` |
 | About page story, "what I do" and interests | `aboutMore` |
-| Hobbies | `beyond.items` (the "Beyond the work" section appears once you add entries) |
+| Outside work (hobbies) | `beyond` (intro and `items`; shown on the About page only) |
+| "What building has taught me" | `aboutMore.values` |
 | People you look up to | `inspirations.items` (`name`, `why`; hidden while empty) |
 | Quotes | `quotes.items` (`text`, `author`; hidden while empty) |
 
