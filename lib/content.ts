@@ -680,7 +680,7 @@ export const capabilities = {
     {
       number: "01",
       title: "Artificial Intelligence",
-      items: ["AI Agents", "LLMs", "Automation", "Intelligent Systems"],
+      items: ["Artificial Intelligence", "AI Agents", "LLMs", "Automation", "Intelligent Systems"],
     },
     {
       number: "02",
@@ -692,6 +692,8 @@ export const capabilities = {
         "Time-series Forecasting",
         "Statistical Data Analysis",
         "Data Analysis",
+        "Financial Analysis",
+        "Microsoft Power BI",
         "SQL",
       ],
     },
@@ -701,9 +703,11 @@ export const capabilities = {
       items: [
         "Software",
         "Product Development",
+        "Front-End Development",
         "Web Dashboards",
         "Web Design",
         "Prototyping",
+        "Project Management",
         "Deployment",
       ],
     },
@@ -713,6 +717,7 @@ export const capabilities = {
       items: [
         "Startups",
         "Team Leadership",
+        "Business Development",
         "Product Thinking",
         "Experimentation",
         "Building from zero",

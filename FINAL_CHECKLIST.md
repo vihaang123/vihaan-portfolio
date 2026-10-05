@@ -53,7 +53,7 @@ Empty values are hidden on the public page, so the site is safe to deploy as is.
 - [ ] `crime-forecasting` project `href`: link to the published paper (shows a "Read the paper" link)
 - [x] About page: Outside work (hobbies) and "What building has taught me" added from your own words
 - [ ] About page: people you look up to (`inspirations.items`) and quotes (`quotes.items`). Each section is hidden until it has entries, so nothing is invented
-- [ ] Skills: LinkedIn's skills page needs a sign-in, so the Capabilities list is still the earlier one
+- [x] Skills: the ten skills on your LinkedIn skills page are in Capabilities (alongside the project-based ones already there)
 - [ ] Other project links, roles and screenshots (optional, when you have them). Only Tekkloom Tools has a link so far
 
 ## Packaging and deployment
