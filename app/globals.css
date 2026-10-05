@@ -1,0 +1,307 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   DESIGN TOKENS
+   Colour, type scale and motion all live here. Change a value once and the
+   whole site follows.
+   ========================================================================== */
+@theme {
+  /* ---- Colour ---------------------------------------------------------- */
+  --color-paper: #f6f6f1; /* page background (warm off-white) */
+  --color-paper-raise: #fbfbf8; /* raised surfaces: panels, UI mockups */
+  --color-paper-deep: #ecebe5; /* recessed surfaces: media wells */
+  --color-ink: #0b0b0b; /* primary text */
+  --color-muted: #63635e; /* secondary text (5.4:1 on paper) */
+  --color-line: #dcdbd5; /* hairlines */
+  --color-accent: #1e3cff; /* electric blue: use sparingly */
+  --color-accent-soft: #8a9bff; /* accent on dark surfaces */
+
+  /* ---- Typefaces ------------------------------------------------------- */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  /* Display: Bricolage Grotesque, a variable face with weight, width and
+     optical-size axes. Used for every heading; the hero animates its axes. */
+  --font-display: var(--font-bricolage), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* ---- Type scale ------------------------------------------------------
+     Eight named steps. Fluid between 360px and 1440px viewports.
+     meta     mono labels, captions, indices
+     small    secondary copy
+     body     running text
+     lead     intro paragraphs
+     h3       project and card titles
+     h2       section headings
+     h1       statement headings
+     display  large statements
+     feature  flagship project title and the closing call to action
+     hero     the opening statement; sized by viewport width AND height so it
+              always fits the first screen (narrow and wide line breaks)
+  ------------------------------------------------------------------------ */
+  --text-meta: 0.6875rem;
+  --text-meta--line-height: 1.45;
+  --text-meta--letter-spacing: 0.09em;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.55;
+
+  --text-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --text-body--line-height: 1.7;
+
+  --text-lead: clamp(1.25rem, 1.02rem + 1vw, 1.75rem);
+  --text-lead--line-height: 1.38;
+  --text-lead--letter-spacing: -0.018em;
+
+  --text-h3: clamp(1.375rem, 1.1rem + 1.1vw, 2rem);
+  --text-h3--line-height: 1.12;
+  --text-h3--letter-spacing: -0.025em;
+
+  --text-h2: clamp(2.125rem, 1.25rem + 3.6vw, 4.25rem);
+  --text-h2--line-height: 1;
+  --text-h2--letter-spacing: -0.03em;
+
+  --text-h1: clamp(2.75rem, 1.4rem + 5.6vw, 6.5rem);
+  --text-h1--line-height: 0.95;
+  --text-h1--letter-spacing: -0.03em;
+
+  --text-display: clamp(3.25rem, 1.2rem + 10vw, 10rem);
+  --text-display--line-height: 0.9;
+  --text-display--letter-spacing: -0.04em;
+
+  --text-feature: clamp(2.5rem, 13vw, 10rem);
+  --text-feature--line-height: 0.9;
+  --text-feature--letter-spacing: -0.035em;
+
+  --text-hero: clamp(2.75rem, min(16vw, 14svh), 5.25rem);
+  --text-hero--line-height: 0.9;
+  --text-hero--letter-spacing: -0.02em;
+
+  --text-hero-wide: clamp(3rem, min(12.5vw, 18svh), 13rem);
+  --text-hero-wide--line-height: 0.9;
+  --text-hero-wide--letter-spacing: -0.02em;
+
+  /* ---- Motion ---------------------------------------------------------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-scroll-line: scroll-line 2.6s var(--ease-out-expo) infinite;
+  --animate-fade-in: fade-in 0.9s var(--ease-out-expo) 0.15s both;
+  --animate-marquee: marquee 48s linear infinite;
+  --animate-glow: glow 22s ease-in-out infinite alternate;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes glow {
+    from {
+      transform: translate3d(-6%, -4%, 0) scale(1);
+    }
+    to {
+      transform: translate3d(8%, 6%, 0) scale(1.18);
+    }
+  }
+
+  @keyframes scroll-line {
+    0% {
+      transform: translateY(-100%);
+    }
+    55%,
+    100% {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* Marching dashes on the forecast line in the hero. */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+/* ==========================================================================
+   LAYOUT TOKENS
+   One margin, one gutter, one section rhythm, used everywhere.
+   ========================================================================== */
+:root {
+  --margin: clamp(1.25rem, 0.6rem + 2.8vw, 3.5rem);
+  --gutter: clamp(1rem, 0.6rem + 1.4vw, 2rem);
+  --section-y: clamp(4.5rem, 2.5rem + 7vw, 9rem);
+  --section-head-gap: clamp(3rem, 2rem + 4vw, 6.5rem);
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-feature-settings: "ss01", "cv11";
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* Every heading is set in the display face. Sizes come from the type scale. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 90;
+  }
+}
+
+/* A whisper of paper grain over everything. Fixed, so it costs nothing on scroll. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.on-dark :focus-visible {
+  outline-color: var(--color-accent-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   LAYOUT PRIMITIVES
+   .container-x  page margins + max width
+   .grid-12      1 column on mobile, 6 on tablet, 12 on desktop
+   .section      consistent vertical rhythm
+   ========================================================================== */
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 96rem;
+    margin-inline: auto;
+    padding-inline: var(--margin);
+  }
+
+  .grid-12 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: var(--gutter);
+  }
+  @media (min-width: 48rem) {
+    .grid-12 {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 64rem) {
+    .grid-12 {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+  }
+
+  .section {
+    padding-block: var(--section-y);
+  }
+  .section-head {
+    margin-bottom: var(--section-head-gap);
+  }
+  /* Long pages: back-to-back light sections share one gap instead of doubling it.
+     A section after a dark band keeps its own top padding. */
+  .flow > .section:not(.bg-ink) + .section:not(.bg-ink) {
+    padding-top: 0;
+  }
+  /* First section of a sub-page: clears the fixed header. */
+  .section-first {
+    padding-top: calc(4.5rem + var(--section-head-gap));
+  }
+
+  /* Mono metadata label. Sentence case: easier to read than shouting caps. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+    font-weight: 400;
+  }
+
+  /* Hero headline: each letter is its own box so its width, weight and
+     optical size can follow the pointer (see KineticHeadline). */
+  .kinetic {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-variation-settings: "wght" 640, "wdth" 78, "opsz" 96;
+  }
+  .kinetic-char {
+    display: inline-block;
+    white-space: pre;
+  }
+
+  /* Underline that sweeps in on hover and is always on for touch devices,
+     where there is no hover to reveal it. */
+  .u-sweep {
+    background: linear-gradient(currentColor, currentColor) left 100% / 0 1px
+      no-repeat;
+    transition: background-size 0.6s var(--ease-out-expo);
+    padding-bottom: 0.2em;
+  }
+  .group:hover .u-sweep,
+  .u-sweep:hover,
+  .u-sweep:focus-visible {
+    background-size: 100% 1px;
+  }
+  @media (hover: none) {
+    .u-sweep {
+      background-size: 100% 1px;
+    }
+  }
+
+  /* Desktop custom cursor: hide the native cursor only where our own
+     replacement is actually rendering. */
+  .has-cursor [data-cursor] {
+    cursor: none;
+  }
+}
