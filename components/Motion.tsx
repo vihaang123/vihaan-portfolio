@@ -59,17 +59,25 @@ interface RevealTextProps {
  */
 export function RevealText({ children, className = "", delay = 0 }: RevealTextProps) {
   return (
-    <span className={`block overflow-hidden pb-[0.1em] ${className}`}>
+    // The clipping wrapper is the element that is watched, not the text that slides.
+    // A heading that wraps onto two lines starts fully outside its own clip box, so
+    // watching the text itself never fired on phones and the heading stayed hidden.
+    <m.span
+      className={`block overflow-hidden pb-[0.1em] ${className}`}
+      initial="hidden"
+      whileInView="shown"
+      viewport={{ once: true, margin: "0px 0px -8% 0px" }}
+    >
       <m.span
         className="block"
-        initial={{ y: "108%" }}
-        whileInView={{ y: 0 }}
-        viewport={{ once: true, margin: "0px 0px -8% 0px" }}
-        transition={{ duration: 1, ease: easeOutExpo, delay }}
+        variants={{
+          hidden: { y: "108%" },
+          shown: { y: 0, transition: { duration: 1, ease: easeOutExpo, delay } },
+        }}
       >
         {children}
       </m.span>
-    </span>
+    </m.span>
   );
 }
 

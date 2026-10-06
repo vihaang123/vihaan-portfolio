@@ -57,6 +57,17 @@ const visuals = {
  */
 const phoneCrop: Partial<Record<ProjectVisualKind, { viewBox: string; ratio: string }>> = {
   orchestration: { viewBox: "225 105 643 597", ratio: "643 / 597" },
+  /* Each drawing drops its empty margins and, for the dense dashboards, the
+     side panels, so the main chart and its title are drawn about twice as
+     large on a phone. Desktop always shows the full drawing. */
+  forecast: { viewBox: "40 45 600 485", ratio: "600 / 485" },
+  market: { viewBox: "40 40 638 535", ratio: "638 / 535" },
+  model: { viewBox: "40 40 565 560", ratio: "565 / 560" },
+  agents: { viewBox: "85 75 835 585", ratio: "835 / 585" },
+  sales: { viewBox: "135 95 730 560", ratio: "730 / 560" },
+  regimes: { viewBox: "60 85 640 560", ratio: "640 / 560" },
+  allocation: { viewBox: "55 85 890 570", ratio: "890 / 570" },
+  gate: { viewBox: "55 115 900 560", ratio: "900 / 560" },
 };
 
 /** Aspect ratios of a visual's frame: the full drawing, and the phone crop. */
